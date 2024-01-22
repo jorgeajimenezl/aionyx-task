@@ -1,0 +1,5 @@
+{
+    "vendor": "openai",
+    "model": "gpt-3.5-turbo",
+    "prompt": "Where the numbers 4, 8, 15, 16, 23 and 42 come from?"
+}
