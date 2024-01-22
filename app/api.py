@@ -48,10 +48,15 @@ def completation(body: CompletationRequest = Body(..., example=example_request))
     if body.vendor not in pool:
         vendor_cls = AVAIlABLE_VENDORS[body.vendor]
         pool[body.vendor] = vendor_cls()
-
     vendor: Vendor = pool[body.vendor]
-    ret = vendor.completation(body)
     id = uuid.uuid4()
+
+    try:
+        ret = vendor.completation(body)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail={"error": f"Vendor {body.vendor} failed."}
+        ) from e
 
     # TODO: Cache the response in a database using the id as key
     # TODO: Add all kinda logging

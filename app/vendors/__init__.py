@@ -15,7 +15,3 @@ VENDORS_CLS: List[Vendor] = [
 AVAIlABLE_VENDORS: Dict[str, type] = {
     vendor.name: vendor for vendor in VENDORS_CLS
 }
-
-# AVAIlABLE_MODELS: Dict[str, List[str]] = {
-#     vendor.name: vendor.available_models for vendor in VENDORS_CLS
-# }

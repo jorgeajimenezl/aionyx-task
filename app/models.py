@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from app.vendors import VendorInput, VendorOutput
 
 class CompletationRequest(VendorInput):
-    # Basic
     vendor: str
 
 class CompletationResponse(VendorOutput):
