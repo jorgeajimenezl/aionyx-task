@@ -9,6 +9,13 @@ Development of a Middleware API for AI Models
 ---
 
 ## Run Locally
+Create an .env file with the necessary API keys. I should look like this:
+```
+OPENAI_API_KEY=...
+ANTHROPIC_API_KEY=...
+...
+```
+
 To run locally in debug mode run:
 
 ```
