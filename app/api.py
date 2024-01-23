@@ -44,7 +44,7 @@ def completation(body: CompletationRequest = Body(..., example=example_request))
         raise HTTPException(
             status_code=404, detail={"error": f"Vendor {body.vendor} not available."}
         )
-    
+
     if body.vendor not in pool:
         vendor_cls = AVAIlABLE_VENDORS[body.vendor]
         pool[body.vendor] = vendor_cls()

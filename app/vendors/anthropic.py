@@ -11,7 +11,7 @@ class Anthropic(Vendor):
         self.llm = ChatAnthropic()
 
     def completation(self, input: VendorInput) -> VendorOutput:
-        return VendorOutput(            
+        return VendorOutput(
             response=self.llm.invoke(
                 input.prompt,
                 model=input.model,

@@ -12,6 +12,4 @@ VENDORS_CLS: List[Vendor] = [
     Anthropic,
 ]
 
-AVAIlABLE_VENDORS: Dict[str, type] = {
-    vendor.name: vendor for vendor in VENDORS_CLS
-}
+AVAIlABLE_VENDORS: Dict[str, type] = {vendor.name: vendor for vendor in VENDORS_CLS}
