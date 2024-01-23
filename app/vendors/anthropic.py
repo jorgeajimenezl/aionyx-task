@@ -8,11 +8,14 @@ class Anthropic(Vendor):
 
     def __init__(self) -> None:
         super().__init__()
-        self.model = ChatAnthropic()
+        self.llm = ChatAnthropic()
 
-    def completation(self, input: VendorInput) -> str:
+    def completation(self, input: VendorInput) -> VendorOutput:
         return VendorOutput(            
-            response=self.model.invoke(
-                input.prompt, model=input.model, temperature=input.temperature
+            response=self.llm.invoke(
+                input.prompt,
+                model=input.model,
+                temperature=input.temperature,
+                max_tokens_to_sample=input.max_tokens,
             ).content
         )

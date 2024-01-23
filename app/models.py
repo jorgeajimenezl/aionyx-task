@@ -1,10 +1,9 @@
-from typing import Dict, List, Literal, Optional
-from pydantic import BaseModel
+from pydantic import Field
 
 from app.vendors import VendorInput, VendorOutput
 
 class CompletationRequest(VendorInput):
-    vendor: str
+    vendor: str = Field(..., description="The name of the vendor.")
 
 class CompletationResponse(VendorOutput):
-    id: str
+    id: str = Field(..., description="The id this specific completation.")

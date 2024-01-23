@@ -8,12 +8,15 @@ class OpenAI(Vendor):
 
     def __init__(self) -> None:
         super().__init__()
-        self.model = ChatOpenAI()
+        self.llm = ChatOpenAI()
 
     def completation(self, input: VendorInput) -> VendorOutput:
-        return VendorOutput(            
-            response=self.model.invoke(
-                input.prompt, model=input.model, temperature=input.temperature
+        return VendorOutput(
+            response=self.llm.invoke(
+                input.prompt,
+                model=input.model,
+                temperature=input.temperature or 0.7,
+                max_tokens=input.max_tokens,
             ).content
         )
 
@@ -23,11 +26,14 @@ class AzureOpenAI(Vendor):
 
     def __init__(self) -> None:
         super().__init__()
-        self.model = AzureChatOpenAI()
+        self.llm = AzureChatOpenAI()
 
     def completation(self, input: VendorInput) -> VendorOutput:
         return VendorOutput(
-            response=self.model.invoke(
-                input.prompt, model=input.model, temperature=input.temperature
+            response=self.llm.invoke(
+                input.prompt,
+                model=input.model,
+                temperature=input.temperature or 0.7,
+                max_tokens=input.max_tokens,
             ).content
         )
